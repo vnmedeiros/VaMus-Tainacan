@@ -33,26 +33,26 @@ class CollectionFormConfig {
 		}
 		$post = tainacan_get_api_postdata();
 		if ( $object->can_edit() ) {
-			if ( isset( $post->vamus_collection_identifier ) )
-				update_post_meta( $object->get_id(), 'vamus_collection_identifier', $post->vamus_collection_identifier);
+			if ( isset( $post->vamus_institution_identifier_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institution_identifier_collection', $post->vamus_institution_identifier_collection);
 
-			if ( isset( $post->vamus_collection_name ) )
-				update_post_meta( $object->get_id(), 'vamus_collection_name', $post->vamus_collection_name);
+			if ( isset( $post->vamus_institution_name_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institution_name_collection', $post->vamus_institution_name_collection);
 
-			if ( isset( $post->vamus_collection_lat ) )
-				update_post_meta( $object->get_id(), 'vamus_collection_lat', $post->vamus_collection_lat);
+			if ( isset( $post->vamus_institution_lat_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institution_lat_collection', $post->vamus_institution_lat_collection);
 
-			if ( isset( $post->vamus_collection_long ) )
-				update_post_meta( $object->get_id(), 'vamus_collection_long', $post->vamus_collection_long);
+			if ( isset( $post->vamus_institution_long_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institution_long_collection', $post->vamus_institution_long_collection);
 		}
 	}
 
 	function add_meta_to_response( $extra_meta, $request ) {
 		$extra_meta = array(
-			'vamus_collection_identifier',
-			'vamus_collection_name',
-			'vamus_collection_lat',
-			'vamus_collection_long'
+			'vamus_institution_identifier_collection',
+			'vamus_institution_name_collection',
+			'vamus_institution_lat_collection',
+			'vamus_institution_long_collection'
 		);
 		return $extra_meta;
 	}
@@ -69,28 +69,28 @@ class CollectionFormConfig {
 				<div class="field">
 					<label class="label">Identificador:</label>
 					<div class="control is-clearfix"> 
-						<input type="text" name="vamus_collection_identifier" >
+						<input type="text" name="vamus_institution_identifier_collection" >
 					</div>
 				</div>
 
 				<div class="field">
 					<label class="label">Nome:</label>
 					<div class="control is-clearfix"> 
-						<input type="text" name="vamus_collection_name" >
+						<input type="text" name="vamus_institution_name_collection" >
 					</div>
 				</div>
 
 				<div class="field">
 					<label class="label">lat:</label>
 					<div class="control is-clearfix"> 
-						<input type="number" name="vamus_collection_lat" >
+						<input type="number" name="vamus_institution_lat_collection" >
 					</div>
 				</div>
 
 				<div class="field">
 					<label class="label">long:</label>
 					<div class="control is-clearfix"> 
-						<input type="number" name="vamus_collection_long" >
+						<input type="number" name="vamus_institution_long_collection" >
 					</div>
 				</div>
 			</div>
