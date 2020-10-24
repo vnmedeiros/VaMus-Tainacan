@@ -33,26 +33,26 @@ class CollectionFormConfig {
 		}
 		$post = tainacan_get_api_postdata();
 		if ( $object->can_edit() ) {
-			if ( isset( $post->vamus_institution_identifier_collection ) )
-				update_post_meta( $object->get_id(), 'vamus_institution_identifier_collection', $post->vamus_institution_identifier_collection);
+			if ( isset( $post->vamus_institute_identifier_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institute_identifier_collection', $post->vamus_institute_identifier_collection);
 
-			if ( isset( $post->vamus_institution_name_collection ) )
-				update_post_meta( $object->get_id(), 'vamus_institution_name_collection', $post->vamus_institution_name_collection);
+			if ( isset( $post->vamus_institute_name_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institute_name_collection', $post->vamus_institute_name_collection);
 
-			if ( isset( $post->vamus_institution_lat_collection ) )
-				update_post_meta( $object->get_id(), 'vamus_institution_lat_collection', $post->vamus_institution_lat_collection);
+			if ( isset( $post->vamus_institute_lat_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institute_lat_collection', $post->vamus_institute_lat_collection);
 
-			if ( isset( $post->vamus_institution_long_collection ) )
-				update_post_meta( $object->get_id(), 'vamus_institution_long_collection', $post->vamus_institution_long_collection);
+			if ( isset( $post->vamus_institute_long_collection ) )
+				update_post_meta( $object->get_id(), 'vamus_institute_long_collection', $post->vamus_institute_long_collection);
 		}
 	}
 
 	function add_meta_to_response( $extra_meta, $request ) {
 		$extra_meta = array(
-			'vamus_institution_identifier_collection',
-			'vamus_institution_name_collection',
-			'vamus_institution_lat_collection',
-			'vamus_institution_long_collection'
+			'vamus_institute_identifier_collection',
+			'vamus_institute_name_collection',
+			'vamus_institute_lat_collection',
+			'vamus_institute_long_collection'
 		);
 		return $extra_meta;
 	}
@@ -69,28 +69,28 @@ class CollectionFormConfig {
 				<div class="field">
 					<label class="label">Identificador:</label>
 					<div class="control is-clearfix"> 
-						<input type="text" name="vamus_institution_identifier_collection" >
+						<input type="text" name="vamus_institute_identifier_collection" >
 					</div>
 				</div>
 
 				<div class="field">
 					<label class="label">Nome:</label>
 					<div class="control is-clearfix"> 
-						<input type="text" name="vamus_institution_name_collection" >
+						<input type="text" name="vamus_institute_name_collection" >
 					</div>
 				</div>
 
 				<div class="field">
 					<label class="label">lat:</label>
 					<div class="control is-clearfix"> 
-						<input type="number" name="vamus_institution_lat_collection" >
+						<input type="number" name="vamus_institute_lat_collection" >
 					</div>
 				</div>
 
 				<div class="field">
 					<label class="label">long:</label>
 					<div class="control is-clearfix"> 
-						<input type="number" name="vamus_institution_long_collection" >
+						<input type="number" name="vamus_institute_long_collection" >
 					</div>
 				</div>
 			</div>
