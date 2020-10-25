@@ -19,6 +19,7 @@ class CollectionFormConfig {
 		add_action( 'tainacan-register-admin-hooks', array( $this, 'register_hook' ) );
 		add_action( 'tainacan-insert-tainacan-collection', array( $this, 'save_data' ) );
 		add_filter( 'tainacan-api-response-collection-meta', array( $this, 'add_meta_to_response' ), 10, 2 );
+		add_filter( 'tainacan-api-items-prepare-for-response', array( $this, 'add_vamus_info_to_response_item' ), 10, 2 );
 	}
 
 	function register_hook() {
@@ -45,6 +46,14 @@ class CollectionFormConfig {
 			if ( isset( $post->vamus_institute_long_collection ) )
 				update_post_meta( $object->get_id(), 'vamus_institute_long_collection', $post->vamus_institute_long_collection);
 		}
+	}
+
+	function add_vamus_info_to_response_item($item_arr, $item) {
+		$item_arr['vamus_institute_identifier_collection'] = get_post_meta($item_arr['collection_id'],'vamus_institute_identifier_collection', true);
+		$item_arr['vamus_institute_name_collection'] = get_post_meta($item_arr['collection_id'], 'vamus_institute_name_collection', true);
+		$item_arr['vamus_institute_lat_collection'] = get_post_meta($item_arr['collection_id'], 'vamus_institute_lat_collection', true);
+		$item_arr['vamus_institute_long_collection'] = get_post_meta($item_arr['collection_id'], 'vamus_institute_long_collection', true);
+		return $item_arr;
 	}
 
 	function add_meta_to_response( $extra_meta, $request ) {
